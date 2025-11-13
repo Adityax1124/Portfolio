@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin — Messages</title>
+
+    <style>
+        body {
+            background: #000;
+            color: #fef6e4;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #ffb400;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(255,180,0,0.3);
+        }
+
+        .table-container {
+            width: 95%;
+            margin: auto;
+            background: #111;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 25px rgba(255,180,0,0.15);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th {
+            background: #1a1a1a;
+            color: #ffb400;
+            padding: 14px;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #333;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #222;
+            color: #fef6e4;
+            vertical-align: top;
+        }
+
+        tr:hover {
+            background: #1c1c1c;
+        }
+
+        .message-box {
+            white-space: pre-wrap;
+            color: #ddd;
+        }
+
+        .timestamp {
+            font-size: 0.85rem;
+            color: #bbb;
+        }
+
+        .email {
+            color: #9d7bff;
+        }
+
+        .delete-btn {
+            background: #ff3b3b;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #ff6b6b;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            background: linear-gradient(90deg, #ffb400, #ff8400);
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            box-shadow: 0 0 20px #ffb400;
+        }
+
+        /* FIXED MODAL SYSTEM */
+        #deleteModal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(6px);
+            display: none; /* FIXED — hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        #deleteModal.modal-visible {
+            display: flex !important; /* only visible when JS adds this */
+        }
+
+        .modal-box {
+            background: #111;
+            padding: 35px;
+            border-radius: 15px;
+            width: 370px;
+            text-align: center;
+            color: #fef6e4;
+            box-shadow: 0 0 30px rgba(255,180,0,0.3);
+            animation: popIn 0.25s ease;
+        }
+
+        .modal-box h3 {
+            color: #ffb400;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .cancel-btn {
+            background: #333;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cancel-btn:hover {
+            background: #444;
+        }
+
+        .delete-btn-modal {
+            background: #ff3b3b;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .delete-btn-modal:hover {
+            background: #ff6b6b;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="/" class="back-btn">⬅ Back to Website</a>
+
+    <h1>📩 Messages from Contact Form</h1>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Timestamp</th>
+                <th>Action</th>
+            </tr>
+
+            {% for msg in messages %}
+            <tr>
+                <td>{{ msg[0] }}</td>
+                <td>{{ msg[1] }}</td>
+                <td class="email">{{ msg[2] }}</td>
+                <td class="message-box">{{ msg[3] }}</td>
+                <td class="timestamp">{{ msg[4] }}</td>
+
+                <!-- DELETE BUTTON (fixed) -->
+                <td>
+                    <button type="button" class="delete-btn" onclick="openDeleteModal({{ msg[0] }})">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+<!-- Modal -->
+<div id="deleteModal">
+    <div class="modal-box">
+        <h3>Delete this message?</h3>
+        <p>This action cannot be undone.</p>
+
+        <div class="modal-buttons">
+            <button onclick="closeModal()" class="cancel-btn">Cancel</button>
+
+            <form id="deleteForm" method="POST">
+                <button class="delete-btn-modal">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+let deleteModal = document.getElementById("deleteModal");
+let deleteForm = document.getElementById("deleteForm");
+
+function openDeleteModal(id) {
+    deleteForm.action = "/admin/delete/" + id;
+    deleteModal.classList.add("modal-visible");
+}
+
+function closeModal() {
+    deleteModal.classList.remove("modal-visible");
+}
+</script>
+
+</body>
+</html>

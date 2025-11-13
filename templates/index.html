@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aditya Singh | Portfolio</title>
+  <link rel="stylesheet" href="/static/style.css">
+
+</head>
+ <!-- Navigation Bar -->
+<header class="navbar">
+    <img src="/static/logo.png" class="logo" alt="Website Logo">
+
+    <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#resume">Resume</a>
+    </nav>
+</header>
+
+
+<body class="page-body">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="content fade-scroll">
+      <h1 class="gradient-text">ADITYA SINGH</h1>
+      <h2 class="sub-gradient">Web Developer & Cyber Security Enthusiast</h2>
+      <p class="Small-line">Crafting secure and scalable digital experiences for the modern web.</p>
+      <a href="#projects" class="btn">Explore My Work</a>
+    
+
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2 class="gradient-text">Featured Projects</h2>
+    <div class="project-container">
+      <div class="project-card fade-scroll" onclick="window.location.href='comingsoon.html'">
+        <h3 class="gradient-text">Projects Updating Soon ⚙️</h3>
+        <p>Stay tuned! Exciting new projects are on their way — web apps, cybersecurity tools, and more.</p>
+        <a href="comingsoon.html" class="view-btn">View Updates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <h2 class="gradient-text">Skills & Expertise</h2>
+    <div class="skills-container">
+      <!-- Sidebar -->
+      <div class="skills-sidebar">
+        <button class="skill-tab active" data-skill="programming">
+          <i data-lucide="code"></i>
+          Programming Languages
+        </button>
+        <button class="skill-tab" data-skill="web">
+          <i data-lucide="globe"></i>
+          Web Development
+        </button>
+        <button class="skill-tab" data-skill="cyber">
+          <i data-lucide="shield"></i>
+          Cyber Security
+        </button>
+        <button class="skill-tab" data-skill="tools">
+          <i data-lucide="settings"></i>
+          Tools & Platforms
+        </button>
+        <button class="skill-tab" data-skill="database">
+          <i data-lucide="database"></i>
+          Database
+        </button>
+      </div>
+
+      <!-- Skills Box -->
+      <div class="skills-box fade-in-right" id="skills-box">
+        <h3>Programming Languages</h3>
+        <div class="skill"><p>Python <span>65%</span></p><div class="progress"><div class="bar" style="--width:65%"></div></div></div>
+        <div class="skill"><p>JavaScript <span>50%</span></p><div class="progress"><div class="bar" style="--width:50%"></div></div></div>
+        <div class="skill"><p>C++ <span>45%</span></p><div class="progress"><div class="bar" style="--width:45%"></div></div></div>
+        <div class="skill"><p>Java <span>50%</span></p><div class="progress"><div class="bar" style="--width:50%"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+<!-- About Me Section -->
+<section id="about" class="about-section">
+  <div class="about-container">
+    <!-- Left Box -->
+    <div class="about-left fade-scroll">
+      <h2 class="gradient-text">About Me</h2>
+      <p>
+        Hi, I’m <strong>Aditya Singh</strong> — a self-driven <strong>Web Developer</strong> and 
+        <strong>Cyber Security Enthusiast</strong> passionate about crafting secure, elegant, and
+        high-performance digital experiences. I love transforming complex problems into simple,
+        creative, and visually appealing solutions. <br><br>
+        My journey began with curiosity for how the web works, which evolved into building interactive
+        applications and exploring system vulnerabilities to understand the tech from both ends — 
+        development and defense. <br><br>
+        Beyond coding, I’m also deeply interested in finance and trade in the stock market, using
+        analytical thinking to make data-backed decisions. I continuously push my limits by competing
+        in coding contests and learning new tools, languages, and frameworks to refine my skills.
+      </p>
+    </div>
+
+    <!-- Right Box (Slideshow) -->
+    <div class="about-right fade-scroll">
+      <h3 class="sub-gradient">Currently Working As</h3>
+      <div class="slideshow">
+        <div class="slide active">
+          <i data-lucide="code"></i>
+          <span>Java Developer</span>
+        </div>
+
+        <div class="slide">
+          <i data-lucide="globe"></i>
+          <span>Web Developer</span>
+        </div>
+
+        <div class="slide">
+          <i data-lucide="trending-up"></i>
+          <span>Stock Market Trader</span>
+        </div>
+
+        <div class="slide">
+          <i data-lucide="terminal"></i>
+          <span>Competitive Programmer</span>
+        </div>
+      </div>
+
+      <!-- Slide Indicators -->
+       <!-- Dots Indicator -->
+  <div class="slide-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+  <!-- CodeChef Profile Card -->
+  <div class="codechef-card fade-scroll">
+    <a href="https://www.codechef.com/users/adityax2411" target="_blank">
+      <img src="/static/CodeChefProfile.jpeg" alt="CodeChef Profile - Aditya Singh">
+    </a>
+  </div>
+</div>
+
+    </div>
+  </div>
+  
+</section>
+
+
+<section id="contact" class="contact-section">
+
+    <div class="contact-container">
+
+        <!-- LEFT: SEND MESSAGE -->
+        <div class="contact-card send-box">
+            <h2 class="contact-title">Send Message</h2>
+
+            <form id="contactForm">
+                
+                <label>Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email address" required>
+
+                <label>Message</label>
+                <textarea id="message" placeholder="Tell me about your project or inquiry..." required></textarea>
+
+                <button type="submit" class="send-btn">
+                    <span>📨</span> Send Message
+                </button>
+            </form>
+        </div>
+
+        <!-- RIGHT BOXES (CONNECT + SOCIALS) -->
+        <div class="right-contact">
+
+<!-- CONNECT WITH ME -->
+<div class="contact-card">
+    <h2 class="contact-title">Connect With Me</h2>
+
+    <p class="connect-text">
+        I'm always open to discussing new opportunities, innovative projects, or just having a tech chat. Feel free to reach out!
+    </p>
+
+    <div class="email-box">
+        <span class="icon">
+            <!-- Email Icon -->
+            <svg width="24" height="24" fill="#ffb400" viewBox="0 0 24 24">
+                <path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6Zm2 0 8 5 8-5H4Zm16 2-8 5-8-5v10h16V8Z"/>
+            </svg>
+        </span>
+
+        <a href="mailto:adisinghx11@gmail.com">adisinghx11@gmail.com</a>
+    </div>
+</div>
+
+<!-- SOCIAL MEDIA -->
+<div class="contact-card">
+    <h2 class="contact-title">Social Media</h2>
+
+    <div class="social-grid">
+
+        <!-- Gmail -->
+        <a class="social-btn gmail" href="mailto:adisinghx11@gmail.com" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" class="icon">
+            <span>Gmail</span>
+        </a>
+
+        <!-- Instagram -->
+        <a class="social-btn instagram" href="#" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" class="icon">
+            <span>Instagram</span>
+        </a>
+
+        <!-- Twitter/X -->
+        <a class="social-btn twitter" href="#" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" class="icon">
+            <span>Twitter</span>
+        </a>
+
+        <!-- LinkedIn -->
+        <a class="social-btn linkedin" href="#" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" class="icon">
+            <span>LinkedIn</span>
+        </a>
+
+        <!-- GitHub -->
+        <a class="social-btn github" href="#" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" class="icon">
+            <span>GitHub</span>
+        </a>
+
+        <!-- TryHackMe -->
+        <a class="social-btn tryhackme" href="#" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tryhackme.svg" class="icon">
+            <span>TryHackMe</span>
+        </a>
+
+    </div>
+</div>
+
+
+
+   <div id="popup" style="display:none;">
+    <div class="popup-box">
+        <div class="loader"></div>
+        <p id="popupText">Sending...</p>
+    </div>
+</div>
+
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  // Render all Lucide icons first
+  lucide.createIcons();
+
+  // Function to recolor Lucide icons in the right box
+  function recolorIcons() {
+    document.querySelectorAll(".about-right svg").forEach(svg => {
+      svg.style.stroke = "#fef6e4";      // soft creamy color
+      svg.style.opacity = "0.95";        // smooth look
+      svg.style.transition = "stroke 0.3s ease, opacity 0.3s ease";
+    });
+  }
+
+  // Apply color immediately and reapply after 0.5s in case Lucide re-renders
+  recolorIcons();
+  setTimeout(recolorIcons, 500);
+</script>
+
+
+  <script>
+    lucide.createIcons();
+
+    const tabs = document.querySelectorAll(".skill-tab");
+    const box = document.getElementById("skills-box");
+
+    const data = {
+      programming: [
+        { name: "Python", percent: 65 },
+        { name: "JavaScript", percent: 50 },
+        { name: "C++", percent: 45 },
+        { name: "Java", percent: 50 },
+      ],
+      web: [
+        { name: "HTML / CSS", percent: 70 },
+        { name: "Flask", percent: 45 },
+        { name: "React.js", percent: 40 },
+        { name: "Node.js", percent: 35 },
+      ],
+      cyber: [
+        { name: "Network Analysis", percent: 50 },
+        { name: "Ethical Hacking", percent: 40 },
+        { name: "Penetration Testing", percent: 35 },
+      ],
+      tools: [
+        { name: "Git / GitHub", percent: 60 },
+        { name: "VS Code", percent: 70 },
+        { name: "Linux CLI", percent: 50 },
+      ],
+      database: [
+        { name: "MySQL", percent: 55 },
+        { name: "SQLite", percent: 50 },
+        { name: "MongoDB", percent: 40 },
+      ],
+    };
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelector(".skill-tab.active").classList.remove("active");
+        tab.classList.add("active");
+
+        const selected = tab.getAttribute("data-skill");
+        const items = data[selected];
+
+        box.classList.remove("visible");
+        setTimeout(() => {
+          box.innerHTML = `<h3>${tab.innerText}</h3>`;
+          items.forEach(item => {
+            box.innerHTML += `
+              <div class="skill">
+                <p>${item.name} <span>${item.percent}%</span></p>
+                <div class="progress"><div class="bar" style="--width:${item.percent}%"></div></div>
+              </div>`;
+          });
+          box.classList.add("visible");
+          setTimeout(() => {
+            document.querySelectorAll(".bar").forEach(b => {
+              b.style.width = b.style.getPropertyValue("--width");
+            });
+          }, 200);
+        }, 200);
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.3 });
+    observer.observe(box);
+  </script>
+  
+
+<script>
+  // Fade scroll visibility
+  const fadeEls = document.querySelectorAll(".fade-scroll");
+  function handleScroll() {
+    const windowHeight = window.innerHeight;
+    fadeEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < windowHeight - 100) el.classList.add("visible");
+    });
+  }
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("load", handleScroll);
+
+  // Slideshow with fade-in only and dots + pause on hover
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
+  const slideshow = document.getElementById("slideshow");
+  let current = 0;
+  let interval;
+
+  function startSlideshow() {
+    interval = setInterval(() => {
+      slides[current].classList.remove("active");
+      dots[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+      dots[current].classList.add("active");
+    }, 3000);
+  }
+
+  // Start slideshow
+  startSlideshow();
+
+  // Pause on hover
+  slideshow.addEventListener("mouseenter", () => clearInterval(interval));
+  slideshow.addEventListener("mouseleave", startSlideshow);
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.getElementById("contactForm");
+    const popup = document.getElementById("popup");
+    const loader = document.querySelector(".loader");
+    const popupText = document.getElementById("popupText");
+
+    // Your secret admin credentials
+    const ADMIN_PASS = "Aditya Singh";  
+    const ADMIN_EMAIL = "adisinghx11@gmail.com";  
+    const ADMIN_MESSAGE = "Show Database";  
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        // 🔐 SECRET 3-STEP ADMIN VERIFICATION
+        if (name === ADMIN_PASS && email === ADMIN_EMAIL && message === ADMIN_MESSAGE) {
+            window.location.href = "/admin/messages";
+            return;
+        }
+
+        // -------------------------------------------------
+        // Normal contact form behaviour below
+        // -------------------------------------------------
+
+        popup.style.display = "flex";
+        loader.style.display = "block";
+        popupText.innerText = "Sending...";
+
+        try {
+            const res = await fetch("/send_message", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({ name, email, message })
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                loader.style.display = "none";
+                popupText.innerText = "✔ Message Sent!";
+
+                setTimeout(() => {
+                    popup.style.display = "none";
+                    form.reset();
+                    loader.style.display = "block";
+                    popupText.innerText = "Sending...";
+                }, 1500);
+
+            } else {
+                loader.style.display = "none";
+                popupText.innerText = "❌ Error sending message";
+            }
+
+        } catch (err) {
+            loader.style.display = "none";
+            popupText.innerText = "❌ Server error";
+        }
+    });
+
+});
+</script>
+
+
+
+<!-- Footer -->
+  <footer class="site-footer">
+    <p>© 2025 Aditya Singh | Built with Precision & Passion</p>
+  </footer>
+</body>
+</html>
