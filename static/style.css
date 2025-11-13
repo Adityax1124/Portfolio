@@ -1,0 +1,789 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+/* Make page stretch full height */
+.page-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+  background-image: url("/static/circuit_seamless.png");
+  color: #fff;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 80px; /* space so footer does NOT overlap */
+
+}
+/*Navbar*/
+.navbar {
+    width: 100%;
+    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;   /* keeps items close */
+    gap: 990px;                     /* space between logo & menu */
+}
+
+.logo {
+    height: 45px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;                     /* reduce gaps between menu items */
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #ffb400;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+
+.nav-links a:hover {
+    color: #ff8400;
+    transform: scale(1.08);
+}
+
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(90deg, #ffb400, #ff8400);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.content {
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+  flex: 1; /* pushes footer to bottom */
+}
+.content h1 {
+  font-size: 4rem;
+  font-weight: 700;
+}
+.content h2 {
+  font-size: 1.4rem;
+  color: #ffb400;
+  margin: 10px 0 20px;
+}
+.content p {
+  color: #aaa;
+  margin-bottom: 40px;
+}
+.btn {
+  background: linear-gradient(90deg, #ffb400, #ff8400);
+  color: #000;
+  padding: 14px 38px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.btn:hover { transform: scale(1.05); box-shadow: 0 0 25px grey; }
+
+
+/* Projects Section */
+.projects {
+  padding: 120px 10%;
+  text-align: center;
+}
+.projects h2 {
+  font-size: 3rem;
+  margin-bottom: 80px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.project-container { display: flex; justify-content: center; }
+.project-card {
+  background: rgba(20,20,20,0.9);
+  border-radius: 20px;
+  padding: 50px;
+  width: 420px;
+  transition: 0.3s;
+}
+.project-card:hover { transform: translateY(-10px); box-shadow: 0 0 30px grey; }
+.project-card h3 { font-size: 1.6rem; color: #ffb400; margin-bottom: 10px; }
+.project-card p { color: #aaa; margin-bottom: 25px; }
+.view-btn {
+  background: linear-gradient(90deg, #ffb400, #ff8400);
+  color: #000; padding: 10px 28px; border-radius: 25px;
+  text-decoration: none; font-weight: 600; transition: 0.3s;
+}
+.view-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px grey; }
+
+/* Skills Section */
+.skills {
+  padding: 140px 10%;
+  text-align: center;
+}
+.skills h2 {
+  font-size: 3rem;
+  margin-bottom: 80px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.skills-container {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+/* Sidebar */
+.skills-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.skill-tab {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 22px 28px;
+  border-radius: 18px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+.skill-tab:hover {
+  background: rgba(255,180,0,0.1);
+  transform: translateX(4px);
+}
+.skill-tab.active {
+  background: linear-gradient(90deg, #ffb400, #ff8400);
+  color: #000;
+  font-weight: 600;
+}
+.skill-tab i {
+  width: 20px;
+  height: 20px;
+}
+
+/* Skill Box */
+.skills-box {
+  background: rgba(25,25,25,0.95);
+  border-radius: 25px;
+  padding: 60px;          /* increased padding */
+  width: 780px;           /* slightly wider */
+  text-align: left;
+  box-shadow: 0 0 25px rgba(255,180,0,0.08);
+  transform: translateX(100px);
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+.skills-box.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.skill { margin-bottom: 30px; }
+.skill p {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.progress {
+  background: #111;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #ffb400, #ff8400);
+  border-radius: 5px;
+  transition: width 1.5s ease;
+}
+
+/* ABOUT SECTION */
+.about-section {
+  padding: 150px 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  max-width: 1300px;
+}
+
+/* LEFT BOX */
+.about-left {
+  flex: 1.4;
+  background: rgba(25, 25, 25, 0.95);
+  padding: 60px;
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(255, 180, 0, 0.08);
+  text-align: left;
+}
+
+.about-left h2 {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+}
+
+.about-left p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #ddd;
+  letter-spacing: 0.3px;
+}
+
+/* RIGHT BOX */
+.about-right {
+  flex: 1;
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.15),
+            0 0 25px rgba(255, 180, 0, 0.3);
+
+  background: linear-gradient(145deg, #ffb400 0%, #cc8800 45%, #ff8400 100%);
+  padding: 50px;
+  border-radius: 25px;
+  text-align: center;
+  color: #fef6e4;
+  box-shadow: 0 0 25px rgba(255, 180, 0, 0.3);
+  align-self: center;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.about-right:hover {
+  box-shadow: 0 0 45px rgba(255, 200, 50, 0.45);
+  transform: translateY(-5px);
+}
+.about-right h3,
+.about-right .slide span,
+.about-right .slide i {
+  color: #fef6e4;
+}
+.about-right h3,
+.about-right .slide span {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+.about-right h3 {
+  font-size: 1.7rem;
+  color: #fef6e4;
+  margin-bottom: 40px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3); /* subtle glow for clarity */
+}
+
+/* SLIDESHOW */
+.slideshow {
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Slides instantly disappear and fade in from right */
+.slide {
+  position: absolute;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffb400;
+  transform: translateX(100px);
+}
+
+.slide.active {
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Icon styling */
+.slide i {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.2px;
+  color: #fef6e4 !important;
+}
+
+.slide span {
+  color: #fef6e4;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* Glowing icon effect */
+.slide.active i {
+  animation: glowIcon 2.5s ease-in-out infinite alternate;
+}
+@keyframes glowIcon {
+  from { opacity: 0.8; filter: drop-shadow(0 0 3px rgba(254, 246, 228, 0.4)); }
+  to { opacity: 1; filter: drop-shadow(0 0 8px rgba(254, 246, 228, 0.7)); }
+}
+
+
+/* Dots Indicator */
+.slide-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(254, 246, 228, 0.5); /* soft creamy base */
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dot.active {
+  background: #fef6e4; /* full creamy color */
+  transform: scale(1.2);
+  box-shadow: 0 0 8px rgba(254, 246, 228, 0.6); /* soft glow */
+}
+
+.dot:hover {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(254, 246, 228, 0.8);
+  cursor: pointer;
+}
+
+/* Fade scroll animation */
+.fade-scroll {
+  opacity: 0;
+  transform: scale(0.95) translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-scroll.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .about-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .about-left, .about-right {
+    width: 100%;
+    padding: 40px 30px;
+  }
+
+  .about-left h2 {
+    font-size: 2.4rem;
+  }
+
+  .about-right h3 {
+    font-size: 1.4rem;
+  }
+
+  .slide {
+    font-size: 1.1rem;
+  }
+}
+
+/* CodeChef Profile Card Below Slideshow */
+.codechef-card {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.codechef-card img {
+  width: 380px;
+  border-radius: 18px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.codechef-card:hover img {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(180, 180, 180, 0.45);
+  cursor: pointer;
+}
+
+/* Optional: subtle pulse when hovered */
+.codechef-card img:hover {
+  filter: brightness(1.05);
+}
+
+
+/* CONTACT SECTION */
+.contact-section {
+  padding: 100px 10%;
+  color: #fef6e4;
+}
+
+.contact-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact-card {
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 20px;
+  padding: 40px;
+  width: 420px;
+  box-shadow: 0 0 15px rgba(255, 180, 0, 0.15);
+}
+
+.send-box {
+  width: 480px;
+}
+
+.contact-title {
+  font-size: 1.8rem;
+  color: #ffb400;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+label {
+  color: #d8d4c3;
+  font-size: 0.95rem;
+  margin-top: 15px;
+  display: block;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  margin-top: 5px;
+  background: #111;
+  color: white;
+  font-size: 1rem;
+}
+
+textarea {
+  height: 130px;
+}
+
+/* BUTTON */
+.send-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 25px;
+  border: none;
+  background: linear-gradient(90deg, #00aaff, #9d4eff);
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.send-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #9d4eff;
+}
+
+/* SOCIAL GRID — Full width, fixed equal box size */
+.social-grid {
+    width: 100%;                       /* Take full container width */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* Two equal columns */
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* SOCIAL BUTTONS — Equal width + equal height */
+.social-btn {
+    width: 100%;                       /* Makes both columns SAME width */
+    height: 70px;                      /* Fixed equal height */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 0 20px;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+
+/* ICONS */
+.icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    transition: 0.3s;
+}
+
+/* GMAIL */
+.gmail {
+    background: #ea4335;
+    box-shadow: 0 4px 15px rgba(234, 67, 53, 0.4);
+}
+.gmail:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 25px rgba(234, 67, 53, 0.55);
+}
+
+/* INSTAGRAM */
+.instagram {
+    background: linear-gradient(90deg, #d62976, #b534d9);
+    box-shadow: 0 4px 15px rgba(214, 41, 118, 0.4);
+}
+.instagram:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 25px rgba(214, 41, 118, 0.55);
+}
+
+/* TWITTER */
+.twitter {
+    background: #1da1f2;
+    box-shadow: 0 4px 15px rgba(29, 161, 242, 0.45);
+}
+.twitter:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 25px rgba(29, 161, 242, 0.6);
+}
+
+/* LINKEDIN */
+.linkedin {
+    background: #0a66c2;
+    box-shadow: 0 4px 15px rgba(10, 102, 194, 0.45);
+}
+.linkedin:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 25px rgba(10, 102, 194, 0.6);
+}
+
+/* GITHUB */
+.github {
+    background: #24292e;
+    box-shadow: 0 4px 15px rgba(36, 41, 46, 0.45);
+}
+.github:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 25px rgba(36, 41, 46, 0.6);
+}
+
+/* TRYHACKME */
+.tryhackme {
+    background: #1f8b4c;
+    box-shadow: 0 4px 15px rgba(31, 139, 76, 0.45);
+}
+.tryhackme:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 25px rgba(31, 139, 76, 0.6);
+}
+
+.connect-text {
+  color: #fef6e4;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 18px;
+  white-space: normal; /* ensures single-line but wraps naturally */
+}
+
+/* Add spacing above and below the entire right-contact box */
+.right-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;         /* distance between top and bottom boxes */
+  margin-top: 20px;  /* space above */
+  margin-bottom: 20px; /* space below */
+}
+
+/* Example colors - customize later */
+.gmail { background: #ea4335; }
+.insta { background: #bc2a8d; }
+.twitter { background: #1da1f2; }
+.linkedin { background: #0077b5; }
+.github { background: #24292e; }
+.tryhackme { background: #2ECC71; }
+
+.social-btn:hover {
+  transform: translateY(-4px);
+  opacity: 0.9;
+}
+
+/* POPUP SUCCESS */
+#popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: none;  /* VERY IMPORTANT */
+    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+}
+
+/* THIS MUST EXIST */
+.popup-hidden {
+  display: none !important;
+}
+
+
+.popup-box {
+  background: #111;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  font-size: 1.3rem;
+  box-shadow: 0 0 20px rgba(255,180,0,0.4);
+}
+
+/* LOADER */
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #444;
+  border-top-color: #ffb400;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+
+/* Footer should always stay at the bottom center */
+.site-footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1rem;
+    color: #fef6e4;          /* Always visible at bottom */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+}
+
+
+
+/*Hover Gradient*/
+/* Title / gradient hover fix */
+.projects h2,
+.skills h2,
+.gradient-text {
+  display: inline-block;                /* required so background-position/transform animates on hover */
+  background: linear-gradient(90deg, #ffb400 0%, #ff8400 40%, #ffd27a 100%);
+  background-size: 200% 100%;           /* allow a slide/shimmer effect */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.6s ease, transform 0.25s ease, text-shadow 0.25s ease;
+  font-weight: 700;
+  cursor: default;
+}
+
+/* Slight lift + shimmer on hover */
+.projects h2:hover,
+.skills h2:hover,
+.gradient-text:hover {
+  background-position: 100% 0;          /* slide the gradient for shimmer */
+  transform: translateY(-3px);          /* small lift */
+  text-shadow: 0 6px 18px rgba(255,180,0,0.08); /* soft glow */
+}
+
+/* If you want pointer cursor on the headings (optional) */
+/* .projects h2:hover, .skills h2:hover { cursor: pointer; } */
+
+/* Custom Gold-Themed Scrollbar (Thicker) */
+::-webkit-scrollbar {
+  width: 14px;                        /* thicker width */
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;                /* matte dark base */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffb400, #cc8800, #ff8400); /* Gold blend */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 180, 0, 0.4);
+  border: 2px solid #0d0d0d;          /* gives it separation from track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffd15c, #ff9f1c);
+  box-shadow: 0 0 15px rgba(255, 200, 50, 0.7);
+}
+
+/* Firefox compatibility */
+* {
+  scrollbar-width: auto;               /* makes it thicker in Firefox */
+  scrollbar-color: #ffb400 #0d0d0d;    /* thumb color | track color */
+}
