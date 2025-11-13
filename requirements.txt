@@ -1,4 +1,6 @@
 flask
 supabase
-supabase-py
+postgrest
+gotrue
+storage3
 gunicorn
